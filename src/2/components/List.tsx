@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactNode, useMemo } from "react";
 
 // Components
 import Item from "./Item";
@@ -13,10 +13,16 @@ import Item from "./Item";
  * and remove the ListProps interface
  */
 
-interface ListProps {}
+interface ListProps {
+  list: ReactNode[];
+}
 
 const List: FunctionComponent<ListProps> = (props) => {
-  return <div>#List goes here#</div>;
+  const items = useMemo(() => {
+    return props.list.map((node, i) => <Item key={i}>{node}</Item>);
+  }, [props.list]);
+
+  return <ul className="list">{items}</ul>;
 };
 
 export default List;

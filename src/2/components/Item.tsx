@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { PropsWithChildren } from "react";
 
 /*
  * The ItemProps interface defines the types for the components props.
@@ -10,10 +10,8 @@ import { FunctionComponent } from "react";
  * and remove the ItemProps interface
  */
 
-interface ItemProps {}
-
-const Item: FunctionComponent<ItemProps> = (props) => {
-  return <li>#Item goes here#</li>;
+const Item = (props: PropsWithChildren<{}>) => {
+  return <li>{props.children}</li>;
 };
 
 export default Item;

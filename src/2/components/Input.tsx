@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { ChangeEvent, FunctionComponent, useCallback } from "react";
 
 /*
  * The InputProps interface defines the types for the components props.
@@ -10,11 +10,26 @@ import { FunctionComponent } from "react";
  * and remove the InputProps interface
  */
 
-interface InputProps {}
+interface InputProps {
+  value: string;
+  placholder: string;
+  onChange: (value: string) => void;
+}
 
 const Input: FunctionComponent<InputProps> = (props) => {
+  const onChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      props.onChange(e.target.value);
+    },
+    [props],
+  );
+
   return (
-    <div>#Input goes here#</div>
+    <input
+      placeholder={props.placholder}
+      value={props.value}
+      onChange={onChange}
+    />
   );
 };
 

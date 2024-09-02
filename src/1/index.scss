@@ -1,4 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+  --primary-color: rgb(225, 155, 0);
+}
+
 /* DO NOT CHANGE THIS ROOT CLASS NAME*/
 #task-1 {
+
   /* Styles goes here */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 20em;
+    margin: 0 auto;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    font-size: 10pt;
+
+    label {
+      margin-block: .3em;
+    }
+
+    .input {
+      min-height: 24px;
+      font-size: 1em;
+      margin-bottom: 1em;
+    }
+
+    .btn {
+      font-weight: bold;
+      padding: .7em;
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: .25em;
+    }
+
+    .input:focus,
+    .btn:focus {
+      outline-color: var(--primary-color);
+      filter: saturate(10);
+    }
+
+    .btn:disabled {
+      opacity: .5;
+    }
+
+  }
 }
